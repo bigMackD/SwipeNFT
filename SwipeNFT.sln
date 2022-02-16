@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.API", "SwipeNFT.API\SwipeNFT.API.csproj", "{725BD4BA-34E4-4B19-AA99-020770D76E9B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Contracts", "SwipeNFT.Contracts\SwipeNFT.Contracts.csproj", "{EA263969-7A17-48D9-BF5B-D927C509E9AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Infrastructure", "SwipeNFT.Infrastructure\SwipeNFT.Infrastructure.csproj", "{B9A387C9-14FE-4C45-99DA-1FE7EEE089F9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Shared.Infrastructure", "SwipeNFT.Shared.Infrastucture\SwipeNFT.Shared.Infrastructure.csproj", "{9DFA5B2B-1A92-42D7-A2A4-67333454423B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Tests", "SwipeNFT.Tests\SwipeNFT.Tests.csproj", "{39459260-8C9A-456F-8633-26DA3930B4A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.DB", "SwipeNFT.DB\SwipeNFT.DB.csproj", "{C66FA04A-211C-4C73-B460-D670E759A134}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{725BD4BA-34E4-4B19-AA99-020770D76E9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{725BD4BA-34E4-4B19-AA99-020770D76E9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{725BD4BA-34E4-4B19-AA99-020770D76E9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{725BD4BA-34E4-4B19-AA99-020770D76E9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA263969-7A17-48D9-BF5B-D927C509E9AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA263969-7A17-48D9-BF5B-D927C509E9AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA263969-7A17-48D9-BF5B-D927C509E9AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA263969-7A17-48D9-BF5B-D927C509E9AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A387C9-14FE-4C45-99DA-1FE7EEE089F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A387C9-14FE-4C45-99DA-1FE7EEE089F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A387C9-14FE-4C45-99DA-1FE7EEE089F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A387C9-14FE-4C45-99DA-1FE7EEE089F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DFA5B2B-1A92-42D7-A2A4-67333454423B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DFA5B2B-1A92-42D7-A2A4-67333454423B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DFA5B2B-1A92-42D7-A2A4-67333454423B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DFA5B2B-1A92-42D7-A2A4-67333454423B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39459260-8C9A-456F-8633-26DA3930B4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39459260-8C9A-456F-8633-26DA3930B4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39459260-8C9A-456F-8633-26DA3930B4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39459260-8C9A-456F-8633-26DA3930B4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C66FA04A-211C-4C73-B460-D670E759A134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C66FA04A-211C-4C73-B460-D670E759A134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C66FA04A-211C-4C73-B460-D670E759A134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C66FA04A-211C-4C73-B460-D670E759A134}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E41F7519-2B0F-4F01-8C0D-DB6399F17342}
+	EndGlobalSection
+EndGlobal
