@@ -14,6 +14,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using SwipeNFT.API.Middleware;
 using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Request.Query.Users;
 using SwipeNFT.Contracts.Response.Authentication;
@@ -145,9 +146,16 @@ namespace SwipeNFT.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<CustomExceptionHandlingMiddleware>();
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "SwipeNFT API v.1");
+                    c.RoutePrefix = string.Empty;
+                });
             }
 
             app.UseCors(builder =>
@@ -166,17 +174,6 @@ namespace SwipeNFT.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-            });
-
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
-
-            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
-            // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SwipeNFT API v.1");
-                c.RoutePrefix = string.Empty;
             });
         }
     }

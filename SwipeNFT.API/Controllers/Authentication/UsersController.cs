@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Request.Query.Users;

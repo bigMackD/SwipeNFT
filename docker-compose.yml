@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  swipenft.api:
+    image: ${DOCKER_REGISTRY-}swipenftapi
+    build:
+      context: .
+      dockerfile: SwipeNFT.API/Dockerfile
+
+  swipenft.seq:
+    container_name: swipenft-seq
+    image: datalust/seq    
+    ports:
+      - '8005:80'      
+    environment:
+      - ACCEPT_EULA=Y 
+    profiles: [dev, prod]

@@ -11,7 +11,7 @@ COPY ["SwipeNFT.API/SwipeNFT.API.csproj", "SwipeNFT.API/"]
 COPY ["SwipeNFT.Infrastructure/SwipeNFT.Infrastructure.csproj", "SwipeNFT.Infrastructure/"]
 COPY ["SwipeNFT.Contracts/SwipeNFT.Contracts.csproj", "SwipeNFT.Contracts/"]
 COPY ["SwipeNFT.Shared.Infrastucture/SwipeNFT.Shared.Infrastructure.csproj", "SwipeNFT.Shared.Infrastucture/"]
-COPY ["SwipeNFT.DAL/SwipeNFT.DAL.csproj", "SwipeNFT.DAL/"]
+COPY ["SwipeNFT.DB/SwipeNFT.DB.csproj", "SwipeNFT.DB/"]
 RUN dotnet restore "SwipeNFT.API/SwipeNFT.API.csproj"
 COPY . .
 WORKDIR "/src/SwipeNFT.API"
