@@ -78,7 +78,7 @@ namespace SwipeNFT.API.Controllers.Authentication
         /// <param name="query"></param>
         /// <response code="200">List of registered users</response>
         [HttpGet]
-        [AllowAuthorized(Role.Admin)]
+        //[AllowAuthorized(Role.Admin)]
         [Route("")]
         public Task<GetUsersResponse> Get([FromQuery] GetUsersQuery query)
         {

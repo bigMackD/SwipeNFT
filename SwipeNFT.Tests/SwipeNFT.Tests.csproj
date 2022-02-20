@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SwipeNFT.DB\SwipeNFT.DB.csproj" />
+    <ProjectReference Include="..\SwipeNFT.DB\SwipeNFT.DAL.csproj" />
     <ProjectReference Include="..\SwipeNFT.Infrastructure\SwipeNFT.Infrastructure.csproj" />
   </ItemGroup>
 

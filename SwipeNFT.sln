@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Shared.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.Tests", "SwipeNFT.Tests\SwipeNFT.Tests.csproj", "{39459260-8C9A-456F-8633-26DA3930B4A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.DB", "SwipeNFT.DB\SwipeNFT.DB.csproj", "{C66FA04A-211C-4C73-B460-D670E759A134}"
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "SwipeNFT.DB", "SwipeNFT.DB\SwipeNFT.DB.sqlproj", "{850F9602-96CC-41DE-86CE-8A15D84FB746}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SwipeNFT.DAL", "SwipeNFT.DAL\SwipeNFT.DAL.csproj", "{2676B1DC-8F51-4ED9-92F9-BFE383116809}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +43,16 @@ Global
 		{39459260-8C9A-456F-8633-26DA3930B4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39459260-8C9A-456F-8633-26DA3930B4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39459260-8C9A-456F-8633-26DA3930B4A5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C66FA04A-211C-4C73-B460-D670E759A134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C66FA04A-211C-4C73-B460-D670E759A134}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C66FA04A-211C-4C73-B460-D670E759A134}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C66FA04A-211C-4C73-B460-D670E759A134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{850F9602-96CC-41DE-86CE-8A15D84FB746}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2676B1DC-8F51-4ED9-92F9-BFE383116809}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2676B1DC-8F51-4ED9-92F9-BFE383116809}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2676B1DC-8F51-4ED9-92F9-BFE383116809}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2676B1DC-8F51-4ED9-92F9-BFE383116809}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

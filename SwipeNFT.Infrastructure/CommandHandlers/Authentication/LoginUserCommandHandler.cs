@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Response.Authentication;
-using SwipeNFT.DB.Models.Authentication;
+using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication

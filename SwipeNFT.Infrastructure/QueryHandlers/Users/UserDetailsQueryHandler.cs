@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SwipeNFT.Contracts.Request.Query.Users;
 using SwipeNFT.Contracts.Response.Users;
-using SwipeNFT.DB.Models.Authentication;
+using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.QueryHandler;
 
 namespace SwipeNFT.Infrastructure.QueryHandlers.Users

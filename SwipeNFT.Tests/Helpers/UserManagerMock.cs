@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.AspNetCore.Identity;
 using Moq;
-using SwipeNFT.DB.Models.Authentication;
+using SwipeNFT.DAL.Models.Authentication;
 
 namespace SwipeNFT.Tests.Helpers
 {

@@ -5,8 +5,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Response.Authentication;
-using SwipeNFT.DB.Context;
-using SwipeNFT.DB.Models.Authentication;
+using SwipeNFT.DAL.Context;
+using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication

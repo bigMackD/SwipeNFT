@@ -18,8 +18,8 @@ using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Request.Query.Users;
 using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.Contracts.Response.Users;
-using SwipeNFT.DB.Context;
-using SwipeNFT.DB.Models.Authentication;
+using SwipeNFT.DAL.Context;
+using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Infrastructure.CommandHandlers.Authentication;
 using SwipeNFT.Infrastructure.QueryHandlers.Users;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
@@ -55,9 +55,6 @@ namespace SwipeNFT.API
                     GetUserProfileQueryHandler>()
                 .AddScoped<IAsyncQueryHandler<GetUserDetailsQuery, UserDetailsResponse>,
                     UserDetailsQueryHandler>();
-
-
-
 
             services.AddControllers();
             services.AddDbContext<AuthenticationContext>(options =>
@@ -138,12 +135,10 @@ namespace SwipeNFT.API
                             Scheme = "oauth2",
                             Name = "Bearer",
                             In = ParameterLocation.Header,
-
                         },
                         new List<string>()
                     }
                 });
-
             });
         }
 
@@ -184,7 +179,5 @@ namespace SwipeNFT.API
                 c.RoutePrefix = string.Empty;
             });
         }
-
-
     }
 }

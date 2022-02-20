@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.AspNetCore.Identity;
 
-namespace SwipeNFT.DB.Models.Authentication
+namespace SwipeNFT.DAL.Models.Authentication
 {
     public class AppUser : IdentityUser
     {
