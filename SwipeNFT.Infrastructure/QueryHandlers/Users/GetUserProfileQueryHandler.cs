@@ -21,7 +21,6 @@ namespace SwipeNFT.Infrastructure.QueryHandlers.Users
             var user = await _userManager.FindByIdAsync(query.UserId);
             return new GetUserProfileResponse
             {
-                Success = true,
                 FullName = user.FullName
             };
         }

@@ -2,10 +2,15 @@
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
+using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using SwipeNFT.Shared.Infrastructure.Exceptions;
 
 namespace SwipeNFT.API.Middleware
 {
+    /// <summary>
+    /// Middleware for handling exceptions
+    /// </summary>
     public class CustomExceptionHandlingMiddleware
     {
         private readonly RequestDelegate _next;
@@ -29,12 +34,14 @@ namespace SwipeNFT.API.Middleware
 
         private Task HandleGlobalExceptionAsync(HttpContext context, Exception exception)
         {
-            if (exception is ApplicationException)
+            if (exception is InputValidationException validationException)
             {
-                Log.ForContext("ValidationError", exception.Message)
+                Log.ForContext("ValidationError", validationException.Message)
                     .Warning("Validation error occurred in API.");
                 context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
-                return context.Response.WriteAsJsonAsync(new { exception.Message });
+                if (validationException.Message.IsNullOrEmpty())
+                    return context.Response.WriteAsJsonAsync(new { validationException.Messages });
+                return context.Response.WriteAsJsonAsync(new { validationException.Message });
             }
             else
             {

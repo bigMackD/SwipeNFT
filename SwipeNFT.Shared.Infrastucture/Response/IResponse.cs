@@ -1,7 +1,6 @@
 ﻿namespace SwipeNFT.Shared.Infrastructure.Response
 {
-    public interface IResponse<T> : IBaseResponse
+    public interface IResponse
     {
-        T Content { get; set; }
     }
 }

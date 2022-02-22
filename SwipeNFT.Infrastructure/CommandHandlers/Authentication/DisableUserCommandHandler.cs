@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using SwipeNFT.Contracts.Request.Command.Authentication;
@@ -6,6 +8,7 @@ using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.DAL.Context;
 using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
+using SwipeNFT.Shared.Infrastructure.Exceptions;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 {
@@ -30,17 +33,10 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
                 user.IsDisabled = true;
                 await _context.SaveChangesAsync();
 
-                return new DisableUserResponse
-                {
-                    Success = true
-                };
+                return new DisableUserResponse();
             }
 
-            return new DisableUserResponse
-            {
-                Success = false,
-                Errors = new[] { _configuration.GetValue<string>("Messages:Users:UserNotFound") }
-            };
+            throw new InputValidationException(_configuration.GetValue<string>("Messages:Users:UserNotFound"));
         }
     }
 }

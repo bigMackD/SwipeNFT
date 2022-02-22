@@ -6,6 +6,7 @@ using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
 using SwipeNFT.Shared.Infrastructure.Enums;
+using SwipeNFT.Shared.Infrastructure.Exceptions;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 {
@@ -20,7 +21,7 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 
         public async Task<RegisterUserResponse> Handle(RegisterUserCommand command)
         {
-            var appUser = new AppUser()
+            var appUser = new AppUser
             {
                 UserName = command.UserName,
                 Email = command.Email,
@@ -29,11 +30,12 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 
             var result = await _userManager.CreateAsync(appUser, command.Password);
             await _userManager.AddToRoleAsync(appUser, Role.User.ToString());
-            return new RegisterUserResponse
+            if (!result.Succeeded)
             {
-                Success = result.Succeeded,
-                Errors = result.Errors.Select(x => x.Description).ToArray()
-            };
+                throw new InputValidationException(result.Errors.Select(x => x.Description).ToArray());
+            }
+
+            return new RegisterUserResponse();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -35,11 +36,9 @@ namespace SwipeNFT.Infrastructure.QueryHandlers.Users
 
             return new GetUsersResponse
             {
-                Success = true,
                 Users = response,
                 Count = users.Count
             };
         }
-
     }
 }

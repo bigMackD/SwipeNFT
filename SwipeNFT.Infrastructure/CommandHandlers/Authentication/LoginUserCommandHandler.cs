@@ -11,6 +11,7 @@ using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
+using SwipeNFT.Shared.Infrastructure.Exceptions;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 {
@@ -34,11 +35,7 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
             {
                 if (user.IsDisabled != null && user.IsDisabled.Value)
                 {
-                    return new LoginUserResponse
-                    {
-                        Success = false,
-                        Errors = new[] { _configuration.GetValue<string>("Messages:Users:UserLocked") }
-                    };
+                    throw new ApplicationException(_configuration.GetValue<string>("Messages:Users:UserLocked"));
                 }
 
                 var roles = await _userManager.GetRolesAsync(user);
@@ -61,16 +58,11 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
                 var token = tokenHandler.WriteToken(securityToken);
                 return new LoginUserResponse
                 {
-                    Success = true,
                     Token = token
                 };
             }
 
-            return new LoginUserResponse
-            {
-                Success = false,
-                Errors = new[] { "Username and/or password incorrect" }
-            };
+            throw new InputValidationException("Username and/or password incorrect");
         }
     }
 }

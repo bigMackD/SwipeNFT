@@ -30,7 +30,6 @@ namespace SwipeNFT.Infrastructure.QueryHandlers.Users
                 PhoneNumber = user.PhoneNumber,
                 PhoneNumberConfirmed = user.PhoneNumberConfirmed,
                 TwoFactorEnabled = user.TwoFactorEnabled,
-                Success = true
             };
         }
     }

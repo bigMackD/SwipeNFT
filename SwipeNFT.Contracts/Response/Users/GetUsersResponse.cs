@@ -3,12 +3,10 @@ using SwipeNFT.Shared.Infrastructure.Response;
 
 namespace SwipeNFT.Contracts.Response.Users
 {
-    public class GetUsersResponse : IBaseResponse, IPagingResponse
+    public class GetUsersResponse : IResponse, IPagingResponse
     {
         public IEnumerable<User> Users { get; set; }
         public int Count { get; set; }
-        public bool Success { get; set; }
-        public string[] Errors { get; set; }
     }
 
     public class User

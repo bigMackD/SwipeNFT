@@ -1,11 +1,10 @@
 {
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:51301",
-      "sslPort": 44377
+      "applicationUrl": "http://localhost:55122/",
+      "sslPort": 44327
     }
   },
   "profiles": {
@@ -16,10 +15,9 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "SwipeNFT": {
+    "SwipeNFT.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

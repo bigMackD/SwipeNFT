@@ -1,4 +1,4 @@
-﻿using SwipeNFT.Shared.Infrastructure.Command;
+﻿using SwipeNFT.Shared.Infrastructure.Requests;
 
 namespace SwipeNFT.Contracts.Request.Command.Authentication
 {

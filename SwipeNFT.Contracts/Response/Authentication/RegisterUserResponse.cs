@@ -2,9 +2,7 @@
 
 namespace SwipeNFT.Contracts.Response.Authentication
 {
-    public class RegisterUserResponse : IBaseResponse
+    public class RegisterUserResponse : IResponse
     {
-        public bool Success { get; set; }
-        public string[] Errors { get; set; }
     }
 }

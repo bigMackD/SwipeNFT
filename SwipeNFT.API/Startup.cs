@@ -70,7 +70,6 @@ namespace SwipeNFT.API
 
 
             //JWT Authentication
-
             var key = Encoding.UTF8.GetBytes(Configuration.GetValue<string>("AppSettings:JWTSecret"));
 
             services.AddAuthentication(x =>

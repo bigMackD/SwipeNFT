@@ -1,4 +1,4 @@
-﻿using SwipeNFT.Shared.Infrastructure.Query;
+﻿using SwipeNFT.Shared.Infrastructure.Requests;
 
 namespace SwipeNFT.Contracts.Request.Query.Users
 {

@@ -17,7 +17,7 @@ namespace SwipeNFT.API
                 .Enrich.FromLogContext()
                 .Enrich.WithMachineName()
                 .Enrich.WithProperty("Assembly", assemblyName)
-                //.WriteTo.Seq(serverUrl: "http://swipenft-seq:5341")
+                .WriteTo.Seq(serverUrl: "http://swipenft-seq:5341")
                 .WriteTo.Console()
                 .CreateLogger();
 

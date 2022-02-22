@@ -1,6 +1,6 @@
-﻿namespace SwipeNFT.Shared.Infrastructure.Query
+﻿namespace SwipeNFT.Shared.Infrastructure.Requests
 {
-    public interface IPagingQuery
+    public interface IPagingQuery : IRequest
     {
         string SortDirection { get; set; }
         int PageIndex { get; set; }
