@@ -5,7 +5,7 @@ using SwipeNFT.Contracts.Request.Command.Authentication;
 using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.DAL.Models.Authentication;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
-using SwipeNFT.Shared.Infrastructure.Enum;
+using SwipeNFT.Shared.Infrastructure.Enums;
 
 namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
 {

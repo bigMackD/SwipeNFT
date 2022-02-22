@@ -41,7 +41,6 @@ namespace SwipeNFT.Infrastructure.CommandHandlers.Authentication
                     };
                 }
 
-
                 var roles = await _userManager.GetRolesAsync(user);
                 IdentityOptions options = new IdentityOptions();
                 var key = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("AppSettings:JWTSecret"));

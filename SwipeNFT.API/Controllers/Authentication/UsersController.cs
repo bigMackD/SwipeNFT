@@ -6,7 +6,7 @@ using SwipeNFT.Contracts.Request.Query.Users;
 using SwipeNFT.Contracts.Response.Authentication;
 using SwipeNFT.Contracts.Response.Users;
 using SwipeNFT.Shared.Infrastructure.CommandHandler;
-using SwipeNFT.Shared.Infrastructure.Enum;
+using SwipeNFT.Shared.Infrastructure.Enums;
 using SwipeNFT.Shared.Infrastructure.Extensions;
 using SwipeNFT.Shared.Infrastructure.QueryHandler;
 

@@ -1,4 +1,4 @@
-﻿namespace SwipeNFT.Shared.Infrastructure.Enum
+﻿namespace SwipeNFT.Shared.Infrastructure.Enums
 {
     public enum Role
     {

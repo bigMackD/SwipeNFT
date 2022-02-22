@@ -9,11 +9,10 @@ namespace SwipeNFT.Shared.Infrastructure.Extensions
     {
         public AllowAuthorizedAttribute(params object[] roles)
         {
-            if (roles.Any(r => r.GetType().BaseType != typeof(System.Enum)))
+            if (roles.Any(r => r.GetType().BaseType != typeof(Enum)))
                 throw new ArgumentException("roles");
 
-            //TODO
-            //Roles = string.Join(",", roles.Select(r => Enum.GetName(r.GetType(), r)));
+            Roles = string.Join(",", roles.Select((r => Enum.GetName(r.GetType(), r))));
         }
     }
 }
