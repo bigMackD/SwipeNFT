@@ -91,6 +91,8 @@ namespace SwipeNFT.API
                 };
             });
 
+            services.AddHealthChecks();
+
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {
@@ -169,6 +171,8 @@ namespace SwipeNFT.API
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseHealthChecks("/health");
 
             app.UseEndpoints(endpoints =>
             {

@@ -1,6 +1,8 @@
 using System;
+using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
 
@@ -12,12 +14,19 @@ namespace SwipeNFT.API
         {
             var assemblyName = typeof(Program).Assembly.GetName().Name;
 
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true)
+                .AddCommandLine(args)
+                .Build();
+
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
                 .Enrich.FromLogContext()
                 .Enrich.WithMachineName()
                 .Enrich.WithProperty("Assembly", assemblyName)
-                .WriteTo.Seq(serverUrl: "http://swipenft-seq:5341")
+                .WriteTo.File("C:/logs/logs.txt")
+                .WriteTo.Seq(serverUrl: config.GetSection("AppSettings:SeqUrl").Value)
                 .WriteTo.Console()
                 .CreateLogger();
 
