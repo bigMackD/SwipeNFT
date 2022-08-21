@@ -1,59 +1,70 @@
 using System;
-using System.IO;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
-using Serilog.Events;
+using SwipeNFT.API.Extensions;
+using SwipeNFT.API.Middleware;
 
-namespace SwipeNFT.API
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container
+builder.Services.AddControllers();
+
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddHealthChecks();
+
+builder.RegisterIoC()
+    .RegisterSerilogLoggingServices()
+    .RegisterJWTServices()
+    .RegisterAuthenticationContextServices()
+    .RegisterSwaggerServices();
+
+var app = builder.Build();
+
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
 {
-    public class Program
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
     {
-        public static int Main(string[] args)
-        {
-            var assemblyName = typeof(Program).Assembly.GetName().Name;
-
-            var config = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true)
-                .AddCommandLine(args)
-                .Build();
-
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Warning)
-                .Enrich.FromLogContext()
-                .Enrich.WithMachineName()
-                .Enrich.WithProperty("Assembly", assemblyName)
-                .WriteTo.File("C:/logs/logs.txt")
-                .WriteTo.Seq(serverUrl: config.GetSection("AppSettings:SeqUrl").Value)
-                .WriteTo.Console()
-                .CreateLogger();
-
-            try
-            {
-                Log.Information("Starting web host");
-                CreateHostBuilder(args).Build().Run();
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "Host terminated unexpectedly");
-                return 1;
-            }
-            finally
-            {
-                Log.CloseAndFlush();
-            }
-        }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            // http://bit.ly/aspnet-builder-defaults
-            Host.CreateDefaultBuilder(args)
-                .UseSerilog()
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
-    }
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "SwipeNFT API v.1");
+        c.RoutePrefix = string.Empty;
+    });
 }
+
+app.UseCors(corsPolicyBuilder =>
+    corsPolicyBuilder.WithOrigins(builder.Configuration.GetValue<string>("AppSettings:ClientUrl"))
+        .AllowAnyHeader()
+        .AllowAnyMethod());
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.UseHealthChecks("/health");
+
+app.MapControllers();
+
+try
+{
+    Log.Information("Starting web host");
+    app.Run();
+    return 0;
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Host terminated unexpectedly");
+    return 1;
+}
+finally
+{
+    Log.CloseAndFlush();
+}
+
