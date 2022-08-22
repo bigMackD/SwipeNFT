@@ -23,8 +23,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: './SwipeNFT.Client/package-lock.json'
-    
-    - name: Clean install
     - run: npm ci
       working-directory: './SwipeNFT.Client/'
     
