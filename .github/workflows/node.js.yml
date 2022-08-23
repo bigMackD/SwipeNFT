@@ -31,10 +31,12 @@ jobs:
           npm run build --prod
       working-directory: './SwipeNFT.Client/'    
     
-    - name: Lint
-      run: |
-          npm run lint
-      working-directory: './SwipeNFT.Client/'
+    # There is a bug in @nrwl/devkit package that causes this step to fail after lint
+    # - wait for next release for a fix https://github.com/nrwl/nx/issues/11653 ng lint still works locally
+    # - name: Lint
+    #   run: |
+    #       npm run lint
+    #   working-directory: './SwipeNFT.Client/'
    
     - name: Test
       run: |
