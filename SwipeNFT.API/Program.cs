@@ -24,10 +24,8 @@ builder.RegisterIoC()
 
 var app = builder.Build();
 
-app.UseMiddleware<CustomExceptionHandlingMiddleware>();
-
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (builder.Configuration.GetValue<bool>("AppSettings:SwaggerEnabled"))
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
@@ -37,20 +35,26 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseCors(corsPolicyBuilder =>
-    corsPolicyBuilder.WithOrigins(builder.Configuration.GetValue<string>("AppSettings:ClientUrl"))
-        .AllowAnyHeader()
-        .AllowAnyMethod());
+
+app.UseHealthChecks("/health");
+
+app.MapControllers();
 
 app.UseHttpsRedirection();
+
+app.UseRouting();
+
+app.UseCors(corsPolicyBuilder =>
+    corsPolicyBuilder
+        .WithOrigins(builder.Configuration.GetValue<string>("AppSettings:ClientUrl"))
+        .AllowAnyHeader()
+        .AllowAnyMethod());
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.UseHealthChecks("/health");
-
-app.MapControllers();
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 try
 {
